@@ -9,7 +9,7 @@ function App() {
 
   return (
     <TasksProvider>
-      <h1>Hello!</h1>
+      <h1>Todo App for Noobs</h1>
       <div className="card">
         <AddTaskForm></AddTaskForm>   
         <TaskList />    

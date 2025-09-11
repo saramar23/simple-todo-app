@@ -13,10 +13,11 @@ type TaskProps = {
 const TaskItem = ({ task, toggle, remove }: TaskProps) => {
 
     return (
-        <div>
-            <p className={task.completed ? "line-through" : ""}>{task.title}</p>
-            <label htmlFor="taskCheckBox">Toggle Task</label>
-            <input type="checkbox" id={task.id.toString()} checked={task.completed} onChange={toggle}/>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", width: "100%" }}>
+            <input type="checkbox" id={`task-${task.id}`} checked={task.completed} onChange={toggle}/>
+            <label htmlFor={`task-${task.id}`} style={{ flex: 1, overflowWrap: "anywhere", wordBreak: "break-word" }}>
+                <span className={task.completed ? "line-through" : ""}>{task.title}</span>
+            </label>
             <button type="button" onClick={remove}>Remove Task</button>
         </div>
     )

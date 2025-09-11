@@ -28,12 +28,13 @@ const TaskList = () => {
             <h2>Task List</h2>
             <ul className="space-y-2">
                 {tasksArray.tasks.map((task) => (
-                    <TaskItem 
-                        key={task.id} 
-                        task={task} 
-                        toggle={() => toggleTask(task.id)} 
-                        remove={() => removeTask(task.id)}
-                    />
+                    <li key={task.id}>
+                        <TaskItem 
+                            task={task} 
+                            toggle={() => toggleTask(task.id)} 
+                            remove={() => removeTask(task.id)}
+                        />
+                    </li>
                 ))}
             </ul>
         </div>

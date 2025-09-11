@@ -10,8 +10,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgb(0, 0, 0);
-  background-color: #ffffffe5;
+  color: rgb(78, 168, 60);
+  background-color: #ffffff1e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,22 +19,44 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* General app container */
+/* app container */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* Card container for your app */
+/* Form */
+.addTaskForm form {
+  display: flex;
+  gap: 8px;
+  width: 25em;
+  flex-direction: column;
+}
+
+.addTaskForm input[type="text"] {
+  height: max-content;
+  padding: 1.5em;
+  border: 1px solid #d6d5dd;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.addTaskForm button {
+  margin-bottom: 0;
+}
+
+/* Card container for app */
 .card {
-  background-color: #fff;
+  background-color: #d6d5dd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   border-radius: 10px;
-  width: 400px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,15 +64,20 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
 }
 
 h2 {
   margin-bottom: 15px;
-  color: #444;
 }
 
-/* Task item container */
+/* Task item container and list */
+.taskListContainer {
+  width: 25em;
+  background-color: #272624e3;
+  margin-top: 2em;
+  padding: 1em;
+}
+
 .taskListContainer ul {
   list-style: none;
   padding: 0;
@@ -62,12 +89,25 @@ h2 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 12px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #0b530b;
   border-radius: 5px;
-  background-color: #fafafa;
+  background-color: white;
   margin-bottom: 5px;
+  gap: 8px;
 }
 
+/* Preventing overflowing of tasks */
+.taskListContainer li label {
+  flex: 1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+input[type="text"] {
+  background-color: white;
+  color: #1a1a1a;
+  height: min-content;
+}
 
 /* Checkbox */
 input[type="checkbox"] {
@@ -81,6 +121,7 @@ label {
   margin-left: 8px;
 }
 
+/* Submit button */
 button:hover {
   color: #2bc02b;
 }
@@ -96,11 +137,12 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin-bottom: 1em;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #2bc02b;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

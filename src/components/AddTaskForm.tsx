@@ -25,10 +25,10 @@ const AddTaskForm = () => {
     }
 
     return (
-        <div>
+        <div className="addTaskForm">
             <form onSubmit={handleSubmit}>
-                <input value={task} onChange={(e) => setTask(e.target.value)}></input>
-                <button type="submit">Submit</button>
+                <input type="text" placeholder="Buy bananas..." value={task} onChange={(e) => setTask(e.target.value)}></input>
+                <button type="submit">Add Task</button>
             </form>
         </div>
     );
