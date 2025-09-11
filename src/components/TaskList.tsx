@@ -23,13 +23,21 @@ const TaskList = () => {
         throw new Error("Tasks Context not available");
     }
 
-    {tasksArray.tasks.map((task) => {
-        return (
-            <div>
-                <TaskItem key={task.id} task={task} toggle={() => toggleTask(task.id)} remove={() => removeTask(task.id)}></TaskItem>
-            </div>
-        )
-    })}
+    return (
+        <div className="taskListContainer">
+            <h2>Task List</h2>
+            <ul className="space-y-2">
+                {tasksArray.tasks.map((task) => (
+                    <TaskItem 
+                        key={task.id} 
+                        task={task} 
+                        toggle={() => toggleTask(task.id)} 
+                        remove={() => removeTask(task.id)}
+                    />
+                ))}
+            </ul>
+        </div>
+    )
 }
 
 export default TaskList;
