@@ -19,15 +19,21 @@ return (
     </TasksContext.Provider>);
 };
 
-// useTasks is a hook that provides the state of the tasks
+// useTasks is a custom hook that provides the state of the tasks
 const useTasks = () => {
     const context = useContext(TasksContext);
+    if (context === undefined) {
+        throw new Error("useTasks must be used with a TasksContext");
+    }
     return {context};
 }
 
 // useTasksDispatch is a hook that provides the dispatch function to update the state of the tasks
 const useTasksDispatch = () => {
     const tasksDisp = useContext(TasksDispatchContext);
+    if (tasksDisp === undefined) {
+        throw new Error("useTasksDispatch must be used with a TasksDispatchContext");
+    }
     return {tasksDisp};
 }
 

@@ -8,15 +8,27 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  
   color-scheme: light dark;
-  color: rgb(78, 168, 60);
-  background-color: #ffffff1e;
+  color: rgb(255, 255, 255);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+/* Page BackGround */
+html {
+  background: linear-gradient(
+    120deg,
+    rgba(180, 109, 238, 0.92),   
+    rgba(112, 40, 46, 0.92),  
+    rgba(76, 75, 155, 0.92),
+    rgba(134, 168, 231, 0.92)
+  );
+  background-attachment: fixed;
 }
 
 /* app container */
@@ -38,20 +50,16 @@ body {
 }
 
 .addTaskForm input[type="text"] {
-  height: max-content;
   padding: 1.5em;
   border: 1px solid #d6d5dd;
   border-radius: 6px;
   background-color: #ffffff;
 }
 
-.addTaskForm button {
-  margin-bottom: 0;
-}
-
 /* Card container for app */
 .card {
-  background-color: #d6d5dd;
+  width: 70vh;
+  background: linear-gradient(120deg, #353836, #7a7171, #353836);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +68,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading */
+/* Headings */
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -73,8 +81,6 @@ h2 {
 /* Task item container and list */
 .taskListContainer {
   width: 25em;
-  background-color: #272624e3;
-  margin-top: 2em;
   padding: 1em;
 }
 
@@ -93,10 +99,10 @@ h2 {
   border-radius: 5px;
   background-color: white;
   margin-bottom: 5px;
-  gap: 8px;
+  gap: 18px;
 }
 
-/* Preventing overflowing of tasks */
+/* Preventing overflowing of tasks text */
 .taskListContainer li label {
   flex: 1;
   overflow-wrap: anywhere;
@@ -106,7 +112,6 @@ h2 {
 input[type="text"] {
   background-color: white;
   color: #1a1a1a;
-  height: min-content;
 }
 
 /* Checkbox */
@@ -118,31 +123,36 @@ input[type="checkbox"] {
 
 /* Task label */
 label {
-  margin-left: 8px;
+  color: black;
 }
-
-/* Submit button */
-button:hover {
-  color: #2bc02b;
-}
-
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid black;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: white;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-bottom: 0;
+  color: #2b66d3;
+  font-size: 1em;
+  font-weight: bold;
 }
 
+/* Add task btn */
 button:hover {
   border-color: #2bc02b;
+  color: #2bc02b;
 }
 
+/* Delete task btn */
+.trashButton:hover {
+  color: red;
+  border-color: red;
+}
+
+/* All btns */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -158,5 +168,85 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .card {
+    max-width: 85vw;
+  }
+
+  .addTaskForm {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+  }
+  
+  .addTaskForm form {
+    max-width: 100%;
+  }
+  
+  .taskListContainer {
+    max-width: 100%;
+  }
+}
+
+/* Mobile screens */ 
+@media (max-width: 767px) {
+  
+  .addTaskForm {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+  }
+
+  .addTaskForm button {
+    box-sizing: border-box;
+    width: 90%;
+  }
+
+  .addTaskForm form {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  
+  body {
+    padding: 5px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 95vw;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .taskListContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+  }
+
+  button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .addTaskForm input[type="text"] {
+    width: 90%;
+    max-width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+  
+  .taskListContainer li {
+    box-sizing: border-box;
+    gap: 10px;
   }
 }

@@ -8,7 +8,7 @@ import type { Action } from '../types/index';
 const AddTaskForm = () => {
 
     const [task, setTask] = useState(''); 
-    const dispatch = useContext(TasksDispatchContext);
+    const dispatch = useContext(TasksDispatchContext); //Remote control that sends instructions to the task list
 
     if (!dispatch) {
         throw new Error("Error");
@@ -19,16 +19,17 @@ const AddTaskForm = () => {
         if (!task.trim()) return;
 
         const action: Action = { type: "ADD_TASK", params: { title: task } };
-        dispatch(action);
+        dispatch(action); //Send the instruction to add the task
 
         setTask(""); //clean up
     }
 
     return (
         <div className="addTaskForm">
+            <h2>Add something to do</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Buy bananas..." value={task} onChange={(e) => setTask(e.target.value)}></input>
-                <button type="submit">Add Task</button>
+                <button type="submit">+ Add Task</button>
             </form>
         </div>
     );
